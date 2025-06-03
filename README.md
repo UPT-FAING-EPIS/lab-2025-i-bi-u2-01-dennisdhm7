@@ -609,3 +609,4 @@ cuente la cantidad de paquetes de trabajo. Asimismo, realice el diagrama físico
     ![image](assets/12.png)
   * Realizamos el commit y push para realizar la Prueba despliegue de deployDatabase.yml
   * Verificamos que se haya ejecutado en github
+    ![image](assets/13.png)
