@@ -605,5 +605,7 @@ cuente la cantidad de paquetes de trabajo. Asimismo, realice el diagrama físico
     ![image](assets/10.png)
   * Agregamos los secretos de SQL_USER y SQL_PASS
     ![image](assets/11.png)
+  * Agregamos una regla de firewall en el servidor sqlserver que tenemos en azure
+    ![image](assets/12.png)
   * Realizamos el commit y push para realizar la Prueba despliegue de deployDatabase.yml
   * Verificamos que se haya ejecutado en github
