@@ -1,5 +1,6 @@
 # azure
 # Grupo de recursos
+# Activar deploy automático
 resource "azurerm_resource_group" "rg_lab2025" {
   name     = "rg-lab2025"
   location = var.location
