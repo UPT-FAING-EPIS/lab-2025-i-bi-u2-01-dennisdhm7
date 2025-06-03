@@ -40,7 +40,7 @@ CREATE TABLE modo_transporte (
   tipo_transporte VARCHAR(100) NOT NULL
 );
 
--- TABLA DE HECHOS ENVÍO
+-- TABLA DE HECHOS ENVÍO-
 CREATE TABLE envio (
   id_envio_pk INT PRIMARY KEY,
   id_tiempo_fk INT NOT NULL,
@@ -56,3 +56,5 @@ CREATE TABLE envio (
   FOREIGN KEY (id_centro_costo_fk) REFERENCES centro_costo(id_centro_costo_pk),
   FOREIGN KEY (id_transporte_fk) REFERENCES modo_transporte(id_transporte_pk)
 );
+
+-- Prueba
