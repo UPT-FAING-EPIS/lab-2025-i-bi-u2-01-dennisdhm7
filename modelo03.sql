@@ -1,16 +1,16 @@
 -- ============================================================
--- Ejercicio 03 – Gestión de proyectos
+-- Ejercicio 03 ï¿½ Gestiï¿½n de proyectos
 -- ============================================================
 
 -- 1) CREAR LA BASE DE DATOS
 CREATE DATABASE gestion_proyectos_dw;
 GO
 
--- Usar la base recién creada
+-- Usar la base reciï¿½n creada
 USE gestion_proyectos_dw;
 GO
 
--- 2) TABLA DIMENSIÓN TIEMPO
+-- 2) TABLA DIMENSIï¿½N TIEMPO
 CREATE TABLE tiempo (
 id_tiempo INT PRIMARY KEY,
 dia INT NOT NULL,
@@ -19,14 +19,14 @@ anio INT NOT NULL
 );
 GO
 
--- 3) TABLA DIMENSIÓN PAIS
+-- 3) TABLA DIMENSIï¿½N PAIS
 CREATE TABLE pais (
 id_pais INT PRIMARY KEY,
 nombre_pais VARCHAR(100) NOT NULL
 );
 GO
 
--- 4) TABLA DIMENSIÓN LOCALIDAD
+-- 4) TABLA DIMENSIï¿½N LOCALIDAD
 CREATE TABLE localidad (
 id_localidad INT PRIMARY KEY,
 nombre_localidad VARCHAR(100) NOT NULL,
@@ -35,7 +35,7 @@ FOREIGN KEY (id_pais_fk) REFERENCES pais(id_pais)
 );
 GO
 
--- 5) TABLA DIMENSIÓN CLIENTE
+-- 5) TABLA DIMENSIï¿½N CLIENTE
 CREATE TABLE cliente (
 id_cliente INT PRIMARY KEY,
 nombre_cliente VARCHAR(100) NOT NULL,
@@ -44,14 +44,14 @@ email_cliente VARCHAR(100) NOT NULL
 );
 GO
 
--- 6) TABLA DIMENSIÓN PROYECTO
+-- 6) TABLA DIMENSIï¿½N PROYECTO
 CREATE TABLE proyecto (
 id_proyecto INT PRIMARY KEY,
 nombre_proyecto VARCHAR(100) NOT NULL
 );
 GO
 
--- 7) TABLA DIMENSIÓN RESPONSABLE
+-- 7) TABLA DIMENSIï¿½N RESPONSABLE
 CREATE TABLE responsable (
 id_responsable INT PRIMARY KEY,
 nombre_responsable VARCHAR(100) NOT NULL,
@@ -59,7 +59,7 @@ cargo_responsable VARCHAR(100) NOT NULL
 );
 GO
 
--- 8) TABLA DIMENSIÓN EMPRESA
+-- 8) TABLA DIMENSIï¿½N EMPRESA
 CREATE TABLE empresa (
 id_empresa INT PRIMARY KEY,
 nombre_empresa VARCHAR(100) NOT NULL,
@@ -86,3 +86,5 @@ FOREIGN KEY (id_responsable_fk) REFERENCES responsable(id_responsable),
 FOREIGN KEY (id_empresa_fk) REFERENCES empresa(id_empresa)
 );
 GO
+
+-- Prueba de despliegue automÃ¡tico

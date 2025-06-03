@@ -546,7 +546,63 @@ cuente la cantidad de paquetes de trabajo. Asimismo, realice el diagrama físico
           - name: Aplicar infraestructura
             run: terraform -chdir=infra apply -auto-approve main.tfplan
       ```
-
+  * Verificamos que se haya desplegado en github y tambien verificamos nuestra cuenta de azure.
+      ![image](assets/9.png)
+      ![image](assets/8.png)
 
 
 4. Contruir la automatización (.github/worflows/deployDatabase.yml) para que se desplieguen los modelos creados en la actividad 1 utilizar el action https://github.com/liquibase-github-actions/update.
+
+  * Creamos nuestro archivo deployDatabase.yml
+    ```
+    name: Deploy Modelos SQL con Liquibase
+
+    on:
+      push:
+        paths:
+          - 'modelo*.sql'
+        branches:
+          - main
+
+    jobs:
+      deploy-modelos:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Checkout código
+            uses: actions/checkout@v3
+
+          - name: Ejecutar modelo01.sql → envio_dw
+            uses: liquibase-github-actions/update@v4
+            with:
+              changelogFile: modelo01.sql
+            env:
+              LIQUIBASE_COMMAND_URL: jdbc:sqlserver://lab2025sqlsrv.database.windows.net:1433;database=envio_dw
+              LIQUIBASE_COMMAND_USERNAME: ${{ secrets.SQL_USER }}
+              LIQUIBASE_COMMAND_PASSWORD: ${{ secrets.SQL_PASS }}
+              LIQUIBASE_COMMAND_DRIVER: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+          - name: Ejecutar modelo02.sql → reserva_dw
+            uses: liquibase-github-actions/update@v4
+            with:
+              changelogFile: modelo02.sql
+            env:
+              LIQUIBASE_COMMAND_URL: jdbc:sqlserver://lab2025sqlsrv.database.windows.net:1433;database=reserva_dw
+              LIQUIBASE_COMMAND_USERNAME: ${{ secrets.SQL_USER }}
+              LIQUIBASE_COMMAND_PASSWORD: ${{ secrets.SQL_PASS }}
+              LIQUIBASE_COMMAND_DRIVER: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+          - name: Ejecutar modelo03.sql → gestion_proyectos_dw
+            uses: liquibase-github-actions/update@v4
+            with:
+              changelogFile: modelo03.sql
+            env:
+              LIQUIBASE_COMMAND_URL: jdbc:sqlserver://lab2025sqlsrv.database.windows.net:1433;database=gestion_proyectos_dw
+              LIQUIBASE_COMMAND_USERNAME: ${{ secrets.SQL_USER }}
+              LIQUIBASE_COMMAND_PASSWORD: ${{ secrets.SQL_PASS }}
+              LIQUIBASE_COMMAND_DRIVER: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+    ```
+  * Hacemos unos cambios en los archivos modelox.sql, solo vas en modificar algo, en este caso agrega un comentario
+    ![image](assets/10.png)
+

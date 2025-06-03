@@ -1,23 +1,23 @@
 -- ============================================================
--- Ejercicio 02 – Reservas de viaje
+-- Ejercicio 02 ï¿½ Reservas de viaje
 -- ============================================================
 
 -- 1) CREAR LA BASE DE DATOS
 CREATE DATABASE reserva_dw;
 GO
 
--- Usar la base recién creada
+-- Usar la base reciï¿½n creada
 USE reserva_dw;
 GO
 
--- 2) TABLA DIMENSIÓN TIPO_CLIENTE
+-- 2) TABLA DIMENSIï¿½N TIPO_CLIENTE
 CREATE TABLE tipo_cliente (
     id_tipo_cliente INT PRIMARY KEY,
     descripcion      VARCHAR(100) NOT NULL
 );
 GO
 
--- 3) TABLA DIMENSIÓN CLIENTE
+-- 3) TABLA DIMENSIï¿½N CLIENTE
 CREATE TABLE cliente (
     id_cliente           INT PRIMARY KEY,
     nombre_cliente       VARCHAR(100) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE cliente (
 );
 GO
 
--- 4) TABLA DIMENSIÓN UBICACION
+-- 4) TABLA DIMENSIï¿½N UBICACION
 CREATE TABLE ubicacion (
     id_ubicacion    INT PRIMARY KEY,
     ciudad          VARCHAR(100) NOT NULL,
@@ -35,21 +35,21 @@ CREATE TABLE ubicacion (
 );
 GO
 
--- 5) TABLA DIMENSIÓN OPERADOR
+-- 5) TABLA DIMENSIï¿½N OPERADOR
 CREATE TABLE operador (
     id_operador     INT PRIMARY KEY,
     nombre_operador VARCHAR(100) NOT NULL
 );
 GO
 
--- 6) TABLA DIMENSIÓN PAIS
+-- 6) TABLA DIMENSIï¿½N PAIS
 CREATE TABLE pais (
     id_pais      INT PRIMARY KEY,
     nombre_pais  VARCHAR(100) NOT NULL
 );
 GO
 
--- 7) TABLA DIMENSIÓN DESTINO
+-- 7) TABLA DIMENSIï¿½N DESTINO
 CREATE TABLE destino (
     id_destino    INT PRIMARY KEY,
     nombre_destino VARCHAR(100) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE destino (
 );
 GO
 
--- 8) TABLA DIMENSIÓN AGENCIA
+-- 8) TABLA DIMENSIï¿½N AGENCIA
 -- (Ahora solo tiene FK a UBICACION, sin FK a OPERADOR)
 CREATE TABLE agencia (
     id_agencia       INT PRIMARY KEY,
@@ -70,7 +70,7 @@ CREATE TABLE agencia (
 );
 GO
 
--- 9) TABLA DIMENSIÓN TIEMPO
+-- 9) TABLA DIMENSIï¿½N TIEMPO
 CREATE TABLE tiempo (
     id_tiempo   INT PRIMARY KEY,
     mes         INT NOT NULL,
@@ -99,3 +99,5 @@ CREATE TABLE reserva (
         REFERENCES destino(id_destino)
 );
 GO
+
+-- Prueba de despliegue automÃ¡tico
