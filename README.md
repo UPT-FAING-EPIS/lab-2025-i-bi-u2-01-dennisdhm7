@@ -573,36 +573,36 @@ cuente la cantidad de paquetes de trabajo. Asimismo, realice el diagrama físico
             uses: actions/checkout@v3
 
           - name: Ejecutar modelo01.sql → envio_dw
-            uses: liquibase-github-actions/update@v4
+            uses: liquibase-github-actions/update@v4.32.0
             with:
               changelogFile: modelo01.sql
-            env:
-              LIQUIBASE_COMMAND_URL: jdbc:sqlserver://lab2025sqlsrv.database.windows.net:1433;database=envio_dw
-              LIQUIBASE_COMMAND_USERNAME: ${{ secrets.SQL_USER }}
-              LIQUIBASE_COMMAND_PASSWORD: ${{ secrets.SQL_PASS }}
-              LIQUIBASE_COMMAND_DRIVER: com.microsoft.sqlserver.jdbc.SQLServerDriver
+              url: jdbc:sqlserver://lab2025sqlsrv.database.windows.net:1433;database=envio_dw
+              username: ${{ secrets.SQL_USER }}
+              password: ${{ secrets.SQL_PASS }}
+              driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
           - name: Ejecutar modelo02.sql → reserva_dw
-            uses: liquibase-github-actions/update@v4
+            uses: liquibase-github-actions/update@v4.32.0
             with:
               changelogFile: modelo02.sql
-            env:
-              LIQUIBASE_COMMAND_URL: jdbc:sqlserver://lab2025sqlsrv.database.windows.net:1433;database=reserva_dw
-              LIQUIBASE_COMMAND_USERNAME: ${{ secrets.SQL_USER }}
-              LIQUIBASE_COMMAND_PASSWORD: ${{ secrets.SQL_PASS }}
-              LIQUIBASE_COMMAND_DRIVER: com.microsoft.sqlserver.jdbc.SQLServerDriver
+              url: jdbc:sqlserver://lab2025sqlsrv.database.windows.net:1433;database=reserva_dw
+              username: ${{ secrets.SQL_USER }}
+              password: ${{ secrets.SQL_PASS }}
+              driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
           - name: Ejecutar modelo03.sql → gestion_proyectos_dw
-            uses: liquibase-github-actions/update@v4
+            uses: liquibase-github-actions/update@v4.32.0
             with:
               changelogFile: modelo03.sql
-            env:
-              LIQUIBASE_COMMAND_URL: jdbc:sqlserver://lab2025sqlsrv.database.windows.net:1433;database=gestion_proyectos_dw
-              LIQUIBASE_COMMAND_USERNAME: ${{ secrets.SQL_USER }}
-              LIQUIBASE_COMMAND_PASSWORD: ${{ secrets.SQL_PASS }}
-              LIQUIBASE_COMMAND_DRIVER: com.microsoft.sqlserver.jdbc.SQLServerDriver
+              url: jdbc:sqlserver://lab2025sqlsrv.database.windows.net:1433;database=gestion_proyectos_dw
+              username: ${{ secrets.SQL_USER }}
+              password: ${{ secrets.SQL_PASS }}
+              driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
 
     ```
   * Hacemos unos cambios en los archivos modelox.sql, solo vas en modificar algo, en este caso agrega un comentario
     ![image](assets/10.png)
 
+  * Realizamos el commit y push para realizar la Prueba despliegue de deployDatabase.yml
+  * Verificamos que se haya ejecutado en github
