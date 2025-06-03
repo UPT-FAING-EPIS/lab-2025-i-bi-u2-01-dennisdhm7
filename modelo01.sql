@@ -71,4 +71,4 @@ FOREIGN KEY (id_transporte_fk) REFERENCES modo_transporte(id_transporte_pk)
 );
 GO
 
--- Prueba de despliegue automático 3
+-- Prueba de despliegue automático 4
